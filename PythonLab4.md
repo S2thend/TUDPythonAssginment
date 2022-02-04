@@ -145,23 +145,59 @@ print("Number is: ", number)  # Line 4
 <font size="5" color="red"> Count is:  1  </font>
 
 (e) If the else clause on Line 1 and Line 2 were removed, what effect would
-that have on the program with the input value 1?
-i. No effect; the program would give the same results.
-ii. The count would be larger.
+that have on the program with the input value 1?         
+i. No effect; the program would give the same results.          
+ii. The count would be larger.           
+iii. The count would be smaller.      
 
-<font size="5" color="red"> iii. The count would be smaller. </font> 
+<font size="5" color="red"> iv. The while loop would not end. </font> 
 
-iv. The while loop would not end.
 v. None of the above.
  
 6. Ask the user to enter a number and print it back on the screen. Keep asking for a new number until they enter a negative number.
+```python
+while True:
+    input_str = input("pls enter a number:")
+    try:
+        input_int = int(input_str)
+        if input_int < 0:
+            break
+    except ValueError as inputValue:
+        print("Incorect value for", inputValue, "Inteager's only pls")
+    except BaseException:
+        print("unkown error")
+
+```
 
 
 7. Write a program that uses loops to print the triangle below 
 Hint 1: you will need to use nested loops.
 Hint 2: on line 1 we print 1 *, on line 2 we print 2 stars… on line x we print x stars…)
+```
 *
 * *  
 * * *  
 * * * *  
 * * * * *  
+```
+Solution1(nested loops):
+```python
+count = 1
+while True:
+    if count == 6:
+        break
+    count += 1
+    for num in range(1,count):
+        print('*', end=' ')
+    print('')
+```
+Soulution2:
+```python
+count = 1
+while True:
+    print('*' * count)
+    count += 1
+    if count == 6:
+        break
+
+```
