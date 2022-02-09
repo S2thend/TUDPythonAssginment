@@ -126,6 +126,45 @@ character with ASCII code 98 (‘b’). So ‘a’ encrypted becomes ‘b’
 
 
 In the second part of the exercise we’ll take the binary string representation and we will convert it back into an integer. 
+
+Part1, Solution1
+```py
+input_str = input("pls enter a integer:")
+input_int = int(input_str)
+if input_int == 0:
+    print("0")
+elif input_int < 0:
+    print("negative number")
+else:
+    binary = ''
+    while input_int != 0:
+        remainder = str(input_int%2)
+        input_int = input_int//2
+        binary = remainder + binary
+    print(binary)
+```
+Part1, Solution2:
+```py
+input_str = input("pls enter a integer:")
+binary = bin(int(input_str))
+print(binary)
+```
+Part2, Solution1:
+```py
+input_str = input("pls enter a string:")
+dec = 0
+counter = len(input_str) - 1
+for char in input_str:
+    dec += int(char) * 2 ** counter
+    counter -= 1
+print(dec)
+```
+Part2, Solution2:
+```py
+input_str = input("pls enter a binary:")
+print(int(input_str,2), "is the result.")
+```
+
  
 Things to remember:
  
