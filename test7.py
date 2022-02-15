@@ -70,12 +70,12 @@
 def main():
     print('start')
     beans = 16
-    while not(beans <= 0):
-        beans = player3(beans)
-        beans = player1(beans)
+    for i in range(1,20):
+        beans = player4(beans)
+        beans = player4(beans)
 
 def player1(beans):
-    beans -= 1
+    beans -= 2
     print(beans)
     if beans == 0:
         print('player1')
@@ -108,6 +108,20 @@ def player3(beans):
     if beans == 0:
         print('player3')
     return beans
+
+def player4(beans):
+    if beans <=3:
+        beans = 0
+    elif 5 < beans <=8:
+        if 0<(beans-5)<=3:
+            beans = 5
+    else:
+        beans -=1
+    if beans == 0:
+        print('player4')
+    print(beans)
+    return beans
+
 
 main()
 

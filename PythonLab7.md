@@ -158,3 +158,18 @@ def player2(beans):
 main()
 ```
 
+```py
+def player4(beans):
+    if beans <=3:
+        beans = 0
+    elif 5 < beans <=8:
+        if 0<(beans-5)<=3:
+            beans = 5
+    else:
+        beans -=1
+    if beans == 0:
+        print('player4')
+    print(beans)
+    return beans
+```
+
