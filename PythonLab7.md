@@ -173,3 +173,23 @@ def player4(beans):
     return beans
 ```
 
+The second player always wins, bucause there is 16 beans and can only take 1-3 at a time:
+
+firstplayer can only take 1-3, which results in 13, 14, or 15 beans left
+
+second player then can make it 12 by taking the right amount accordingly.
+
+first player then can only left with 11, 10, 9 beans
+
+second player make it 8
+
+first then 5, 6, 7
+
+second make it 4
+
+first palyer can only make it 1, 2, 3
+
+second player wins
+
+
+
