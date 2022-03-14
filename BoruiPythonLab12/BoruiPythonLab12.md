@@ -13,36 +13,104 @@ Questions:
 2. Given a string S of lower case characters check whether this string is Heterogram or not. A heterogram is a word, phrase, or sentence in which no letter of the alphabet occurs more than once. Hint: remember that sets by definition do not have repeated elements. So try to somehow use sets to solve the problem. Check whether the strings below are Heterograms or not:
 string1 =  'the big dwarf only jumps'
 string2 =  'given string is Heterogram'
+```py
+string2 =  'the big dwarf only jumps'
+string1 =  'given string is Heterogram'
+
+string1_c = string1.replace(" ", "")
+tmp = set()
+isHetero = True
+for char in string1_c:
+    if char in tmp:
+        isHetero = False
+        break
+    else:
+        tmp.add(char)
+print(isHetero)
+```
 3. Given a string S of lower case characters check whether this string is a Pangram or not. Pangram is a sentence using every letter of a given alphabet at least once. Check whether the string below is a Pangram or not:
 string = 'The quick brown fox jumps over the lazy dog'
-4. Given the following sets, predict the outputs and then check them in your shell. (Hint: Remember which is independent of the order—i.e., when it matters that a_set is first versus b_set being first.)
-(a)
+```py
+string = 'The quick brown fox jumps over the lazy dog'
+string_c = string.replace(" ", "").lower()
+set1 = set()
+set2 = set()
+for char in string_c:
+    if char in set1:
+        set2.add(char)
+    else:
+        set1.add(char)
+print(set1)
+print(set2)
+print(set1 == set2)
+```
+
+4. Given the following sets, predict the outputs and then check them in your shell. (Hint: Remember which is independent of the order—i.e., when it matters that a_set is first versus b_set being first.)          
+(a)independent of the order
+```
 a_set = {"the", "coat", "had", "many", "colors", "red", "blue", "yellow"}
 b_set = {"my", "coat", "had", "two", "main", "colors", "red", "blue"}
 x= a_set.intersection(b_set)
 y= b_set.intersection(a_set)
 print(x)
 print(y)
-(b)
+```
+(b)independent of the order
+```
 w = a_set.union(b_set)
 v = b_set.union(a_set)
 print(w)
 print(v)
-(c)
+```
+(c)not independent of the order
+```
 t = a_set.difference(b_set)
 u = b_set.difference(a_set)
 print(t)
 print(u)
-(d)
+```
+(d)independent of the order
+```
 r = a_set.symmetric_difference(b_set)
 s = b_set.symmetric_difference(a_set)
 print(r)
 print(s)
-5. Write a function that takes a person’s first and last names as input and
+```
+5. Write a function that takes a person’s first and last names as input and     
 (a) uses lists to return a list of the common letters in the first and last names (the
 intersection).
+```py
+firstName = 'Sherlock'
+lastName = 'Holmes'
+def common(first, last):
+    set1 = set(first.lower())
+    set2 = set(last.lower())
+    res = list(set1 & set2)
+    return res
+print(common(firstName, lastName))
+```
 (b) uses sets to return a set that is the intersection of the characters in the first and last names.
+```py
+firstName = 'Sherlock'
+lastName = 'Holmes'
+def common(first, last):
+    set1 = set(first.lower())
+    set2 = set(last.lower())
+    res = set1 & set2
+    return res
+print(common(firstName, lastName))
+```
 (c) uses sets to return the set that is the symmetric difference between the first and last names.
+```py
+firstName = 'Sherlock'
+lastName = 'Holmes'
+def common(first, last):
+    set1 = set(first.lower())
+    set2 = set(last.lower())
+    res = set1 ^ set2
+    return res
+print(common(firstName, lastName))
+```
 6. Websites like the Internet Movie Database (www.imdb.com) maintain extensive information about movies and actors. If you search for a movie on the website, a web page showing information about the movie is displayed. It also shows all the actors in the movie. If you click on the link for an actor, you are taken to an actor’s page, where you can find information about him or her, including the movies the actor has appeared in. This assignment should give you some insight into the working of such websites.
 Here is what we’d like to do with the data:
 (a) Given two titles of a movie as (movie, year), each representing the set of actors in that movie:
