@@ -66,9 +66,6 @@ while True:
     file_str = input("Open what file:")
     try:
         input_file = open(file_str)  # potential user error
-    except IOError:
-        print("The file", file_str, "doesn't exist.")
-    finally:
         while True:
             try:
                 find_line_str = input("Which line (integer):")
@@ -87,4 +84,6 @@ while True:
             except ValueError:
                 print("Line", find_line_str, "isn't a legal line number.")
         break
+    except IOError:
+        print("The file", file_str, "doesn't exist.")
 print("End of the program")
